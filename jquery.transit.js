@@ -165,11 +165,14 @@
       // forcing Chrome to not use the 3d transforms as well.  Not sure if
       // translate is affectede, but not risking it.  Detection code from
       // http://davidwalsh.name/detecting-google-chrome-javascript
-      if (support.transform === 'WebkitTransform' && !isChrome) {
-        elem.style[support.transform] = value.toString(true);
-      } else {
-        elem.style[support.transform] = value.toString();
-      }
+      // if (support.transform === 'WebkitTransform' && !isChrome) {
+      //   elem.style[support.transform] = value.toString(true);
+      // } else {
+      //   elem.style[support.transform] = value.toString();
+      // }
+
+      // Always use 2d scale
+      elem.style[support.transform] = value.toString();
 
       $(elem).data('transform', value);
     }
